@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>空景镇新闻中心</title>
+    <style>
+        /* 像素化重置 */
+        * {
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: pixelated;
+        }
+
+        body {
+            background: #0a0f1a;
+            font-family: 'Courier New', 'Press Start 2P', monospace;
+            margin: 0;
+            padding: 20px;
+            color: #d4e0e8;
+        }
+
+        /* 像素报纸容器 */
+        .newspaper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e2a2a;
+            border: 4px solid #7c9c7c;
+            box-shadow: 8px 8px 0px #0f1a1a;
+            padding: 20px;
+            image-rendering: pixelated;
+        }
+
+        /* 像素标题框 */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #7c9c7c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #e0c87c;
+            text-shadow: 2px 2px 0 #4a5a2a;
+            font-family: 'Courier New', monospace;
+        }
+        .header .sub {
+            font-size: 12px;
+            color: #a8c0a0;
+            font-family: monospace;
+        }
+
+        /* 像素日期栏 */
+        .date {
+            text-align: right;
+            font-size: 12px;
+            color: #b0c4b0;
+            border-bottom: 1px solid #5a7a5a;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        /* 像素标题 */
+        h2 {
+            font-size: 20px;
+            margin: 20px 0 12px;
+            color: #f0d87c;
+            border-left: 6px solid #d0a84c;
+            padding-left: 12px;
+            font-family: 'Courier New', monospace;
+            text-shadow: 1px 1px 0 #2a3a1a;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 12px;
+            text-align: justify;
+            font-family: monospace;
+        }
+
+        /* 像素图片容器 */
+        .hero-image, .image-box {
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #6a8e6a;
+            background: #0e1a1a;
+            padding: 4px;
+        }
+        .hero-image img, .image-box img {
+            max-width: 100%;
+            display: block;
+            image-rendering: pixelated;
+        }
+        .caption {
+            font-size: 10px;
+            color: #b8cca8;
+            margin-top: 6px;
+            font-family: monospace;
+        }
+
+        /* 像素景点卡片 (三个卡片，像素边框) */
+        .spot-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            margin: 25px 0;
+        }
+        .spot-card {
+            flex: 1;
+            min-width: 160px;
+            background: #1e2a22;
+            border: 3px solid #6e8e5e;
+            box-shadow: 4px 4px 0 #0e1a12;
+            padding: 12px;
+            text-align: center;
+        }
+        .spot-card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border: 2px solid #8aae6a;
+            image-rendering: pixelated;
+        }
+        .spot-card h3 {
+            margin: 12px 0 6px;
+            color: #e0c870;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+        }
+        .spot-card p {
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* 像素链接框 */
+        .links {
+            background: #1a2620;
+            border: 3px solid #6c8c5c;
+            padding: 14px;
+            margin: 30px 0 10px;
+        }
+        .links h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #e8d88c;
+        }
+        .links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .links li {
+            margin-bottom: 10px;
+        }
+        .links a {
+            text-decoration: none;
+            color: #c0e0a0;
+            font-family: monospace;
+            font-size: 13px;
+            border-bottom: 1px dotted #7c9c6c;
+        }
+        .links a:hover {
+            color: #ffffb0;
+            border-bottom: 2px solid #f0d06c;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 10px;
+            border-top: 1px solid #5a765a;
+            padding-top: 12px;
+            color: #8ca88c;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        /* 像素按钮风格 */
+        a {
+            transition: all 0.05s linear;
+        }
+    </style>
+</head>
+<body>
+<div class="newspaper">
+    <div class="header">
+        <h1>空景镇旅游导览</h1>
+        <div class="sub">Hollowsight Town</div>
+    </div>
+    <div class="date">2260年8月16日</div>
+
+    <!-- 小镇内部大照片（像素框） -->
+    <div class="hero-image">
+        <img src="xiaozhen.jpg"  onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%233d5a3d%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23e0c080%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%20font-family%3D%22monospace%22%3E空景镇街景%3C%2Ftext%3E%3C%2Fsvg%3E';">
+        <div class="caption">▲ 空景镇老街一隅</div>
+    </div>
+
+    <h2>🌄 山水画卷 · 空景镇</h2>
+    <p>空景镇坐落于东南沿海，背靠青翠群山，面朝蔚蓝大海。镇内原始森林连绵数十里，溪流穿镇而过。这里四季分明，春有鲜花遍野，夏可避暑听涛，秋来层林尽染，冬日云雾缭绕如仙境。 为打造高品质生态旅游目的地，空景镇政府于2260年上旬启动“小镇焕新”计划，在保护自然风貌的同时，全面提升人文景观与旅游服务设施。经过数月改造，镇图书馆完成重新装修，多家咖啡馆、精品旅馆及手工艺工坊陆续开业，为这座山海小镇注入了新的活力。
+始建于2210年的空景镇图书馆是镇上最古老的公共建筑之一。此次修缮保留了石墙与木梁结构，内部增设了数字阅览区、地方文献室及儿童绘本角。馆藏新增了关于本地地质、海洋生态及民俗文化的专题书籍，并特别开辟“昼湖地质档案”展示柜，供游客了解北山溶洞的科考历程。
+为满足游客多样化的需求，镇旅游发展办公室引入了一批特色服务业态如海景咖啡厅、温泉水疗馆、北山街集市夜会。镇长在验收时表示：“我们希望通过这些举措，让游客不仅欣赏到空景镇的自然之美，也能感受到这里的人文温度。” 据悉，未来小镇还将定期举办读书会、艺术节等活动，进一步丰富旅游体验。</p>
+
+    <h2>🏞️ 必游景点</h2>
+    <div class="spot-list">
+        <div class="spot-card">
+            <img src="senlin.jpg"  onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22130%22%20viewBox%3D%220%200%20200%20130%22%3E%3Crect%20width%3D%22200%22%20height%3D%22130%22%20fill%3D%22%233f6a2f%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23eee%22%20font-size%3D%2214%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E森林%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            <h3>森林氧吧</h3>
+            <p>徒步穿行千年古树林，呼吸最纯净的空气。</p>
+        </div>
+        <div class="spot-card">
+            <img src="haibian.jpg"  onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22130%22%20viewBox%3D%220%200%20200%20130%22%3E%3Crect%20width%3D%22200%22%20height%3D%22130%22%20fill%3D%22%23338acc%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23fff%22%20font-size%3D%2214%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E海边%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            <h3>金色海滩</h3>
+            <p>绵延数里的细沙海岸，观潮起潮落，享渔舟唱晚。</p>
+        </div>
+        <div class="spot-card">
+            <img src="matou.jpg"  onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22130%22%20viewBox%3D%220%200%20200%20130%22%3E%3Crect%20width%3D%22200%22%20height%3D%22130%22%20fill%3D%22%238fbc8f%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23fff%22%20font-size%3D%2214%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E渔港%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            <h3>渔人码头</h3>
+            <p>品尝现捕海鲜，体验渔家生活。</p>
+        </div>
+    </div>
+
+    <h2>🚗 交通指南</h2>
+    <p>从省城驱车约3小时可达，或乘坐高铁至“空景站”转旅游专线。详细可咨询空景镇旅游中心（联系方式：hollowsight@foxmail.com）。</p>
+
+    <!-- 往期报道链接（像素风格） -->
+    <div class="links">
+        <h3>📰 相关报道</h3>
+        <ul>
+            <li>🔹 <a href="secondpage.html">2280年9月1日 北山溶洞发现“昼湖”</a></li>
+            <li>🔹 <a href="thirdpage.html">2280年9月15日 湖底勘测图纸部分公开</a></li>
+            <li>🔹 <a href="fourthpage.html">2285年10月9日 小镇怪事频发，有人怀疑与昼湖有关</a></li>
+            <li>🔹 <a href="fifthpage.html">2300年4月24日 政府决定炸毁洞穴入口</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        空景镇新闻中心 | 编辑：张月鹿   校对：呆米
+
+    </div>
+</div>
+</body>
+</html>
